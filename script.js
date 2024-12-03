@@ -19,27 +19,26 @@ function getHumanChoice() {
 function determWinner(usrChoice, cpuChoice) {
     // Return the winner based off usrChoice and cpuChoice
 
-    // Rock
-    if (usrChoice === 'rock' && cpuChoice === 'rock')
-        return 'tie';
-    else if (usrChoice === 'rock' && cpuChoice === 'paper')
-        return 'usr';
-    else if (usrChoice === 'rock' && cpuChoice === 'scissors')
-        return 'cpu'
-    // Paper
-    else if (usrChoice === 'paper' && cpuChoice === 'rock')
-        return 'cpu';
-    else if (usrChoice === 'paper' && cpuChoice === 'paper')
-        return 'tie';
-    else if (usrChoice === 'paper' && cpuChoice === 'scissors')
-        return 'usr'
-    // Scissors
-    else if (usrChoice === 'scissors' && cpuChoice === 'rock')
-        return 'cpu';
-    else if (usrChoice === 'scissors' && cpuChoice === 'paper')
-        return 'usr';
-    else if (usrChoice === 'scissors' && cpuChoice === 'scissors')
-        return 'tie'
+    // tie
+    if ( (usrChoice === 'rock' && cpuChoice === 'rock') ||
+        (usrChoice === 'paper' && cpuChoice === 'paper') ||
+        (usrChoice === 'scissors' && cpuChoice === 'scissors') ) {
+            return 'tie';
+        }
+
+    // user wins
+    else if ( (usrChoice === 'rock' && cpuChoice === 'paper') ||
+            (usrChoice === 'paper' && cpuChoice === 'scissors') ||
+            (usrChoice === 'scissors' && cpuChoice === 'paper') ) {
+                return 'usr';
+            }
+
+    // computer wins
+    else if ( (usrChoice === 'rock' && cpuChoice === 'scissors') ||
+            (usrChoice === 'paper' && cpuChoice === 'rock') ||
+            (usrChoice === 'scissors' && cpuChoice === 'rock') ) {
+                return 'cpu';
+            }
 }
 
 function playRound() {
