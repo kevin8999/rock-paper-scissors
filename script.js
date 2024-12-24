@@ -32,39 +32,46 @@ function determWinner(usrChoice, cpuChoice) {
     }
 }
 
+function displayWinner(winner, usrScore, cpuScore) {
+
+}
+
 function main() {
     let cpuScore = 0;
     let usrScore = 0;
 
-    let cpuChoice = getComputerChoice();
-    let usrChoice;
-
-    // Get user choice
     let buttons = document.querySelector(".buttons");
 
     buttons.addEventListener("click", (event) => {
         let target = event.target;
-        usrChoice = target.id;
+        let usrChoice = target.id;
+        let cpuChoice = getComputerChoice();
+
+        console.log(`USR: ${usrChoice}\tCPU: ${cpuChoice}`);
+
+        if (usrChoice === undefined) {
+            console.error('Invalid choice!');
+            return;
+        }
+
+        winner = determWinner(usrChoice, cpuChoice);
+
+        // Display winner to user
+        winnerDisplay = document.querySelector('.winner-display');
+        if (winner === 'usr') {
+            usrScore += 1;
+            console.log("User wins!");
+        }
+        else if (winner === 'cpu') {
+            cpuScore += 1;
+            console.log("CPU wins!");
+        }
+        else {
+            console.log("Tie!");
+        }
+
+        console.log(`USR: ${usrScore}\tCPU: ${cpuScore}`)
     });
-
-    console.log(usrChoice);
-
-    if (usrChoice === undefined)
-        console.error('Invalid choice!')
-
-    winner = determWinner(usrChoice, cpuChoice);
-
-    // Determine winner
-    if (winner === 'usr') {
-        usrScore += 1;
-        alert("User wins!");
-    }
-    else if (winner === 'cpu') {
-        cpuScore += 1;
-        alert("CPU wins!")
-    }
-
-    console.log(`USR: ${usrScore}\tCPU: ${cpuScore}`)
 }
 
 main();
