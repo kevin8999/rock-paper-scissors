@@ -20,50 +20,54 @@ function determWinner(usrChoice, cpuChoice) {
     // Return the winner based off usrChoice and cpuChoice
 
     // tie
-    if ( (usrChoice === 'rock' && cpuChoice === 'rock') ||
+    if ((usrChoice === 'rock' && cpuChoice === 'rock') ||
         (usrChoice === 'paper' && cpuChoice === 'paper') ||
-        (usrChoice === 'scissors' && cpuChoice === 'scissors') ) {
-            return 'tie';
-        }
+        (usrChoice === 'scissors' && cpuChoice === 'scissors')) {
+        return 'tie';
+    }
 
     // user wins
-    else if ( (usrChoice === 'rock' && cpuChoice === 'paper') ||
-            (usrChoice === 'paper' && cpuChoice === 'scissors') ||
-            (usrChoice === 'scissors' && cpuChoice === 'paper') ) {
-                return 'usr';
-            }
+    else if ((usrChoice === 'rock' && cpuChoice === 'paper') ||
+        (usrChoice === 'paper' && cpuChoice === 'scissors') ||
+        (usrChoice === 'scissors' && cpuChoice === 'paper')) {
+        return 'usr';
+    }
 
     // computer wins
-    else if ( (usrChoice === 'rock' && cpuChoice === 'scissors') ||
-            (usrChoice === 'paper' && cpuChoice === 'rock') ||
-            (usrChoice === 'scissors' && cpuChoice === 'rock') ) {
-                return 'cpu';
-            }
-}
-
-function playRound() {
-    let cpuChoice = getComputerChoice();    
-    let usrChoice = getHumanChoice();
-
-    if (usrChoice === undefined)
-        console.error('Invald choice!')
-
-    winner = determWinner(usrChoice, cpuChoice);
-    return winner;
+    else if ((usrChoice === 'rock' && cpuChoice === 'scissors') ||
+        (usrChoice === 'paper' && cpuChoice === 'rock') ||
+        (usrChoice === 'scissors' && cpuChoice === 'rock')) {
+        return 'cpu';
+    }
 }
 
 function main() {
+    let i = 0;
     let cpuScore = 0;
     let usrScore = 0;
 
-    winner = playRound();
+    while (i < 5) {
+        let cpuChoice = getComputerChoice();
+        let usrChoice = getHumanChoice();
 
-    if (winner === 'usr')
-        usrScore += 1;
-    else if (winner === 'cpu')
-        cpuScore += 1;
+        if (usrChoice === undefined)
+            console.error('Invald choice!')
 
-    console.log(`USR: ${usrScore}\tCPU: ${cpuScore}`)
+        winner = determWinner(usrChoice, cpuChoice);
+
+        // Determine winner
+        if (winner === 'usr') {
+            usrScore += 1;
+            alert("User wins!");
+        }
+        else if (winner === 'cpu') {
+            cpuScore += 1;
+            alert("CPU wins!")
+        }
+
+        console.log(`USR: ${usrScore}\tCPU: ${cpuScore}`)
+        i++;
+    }
 }
 
 main();
