@@ -39,10 +39,13 @@ function displayWinner(winner, usrScore, cpuScore) {
 function main() {
     let cpuScore = 0;
     let usrScore = 0;
+    let numRoundsPlayed = 0;
 
     let buttons = document.querySelector(".buttons");
 
     buttons.addEventListener("click", (event) => {
+        numRoundsPlayed++;
+
         let target = event.target;
         let usrChoice = target.id;
         let cpuChoice = getComputerChoice();
@@ -58,19 +61,38 @@ function main() {
 
         // Display winner to user
         winnerDisplay = document.querySelector('.winner-display');
+
+        let winnerText = "";
         if (winner === 'usr') {
             usrScore += 1;
-            console.log("User wins!");
+            winnerText = "User wins!";
         }
         else if (winner === 'cpu') {
             cpuScore += 1;
-            console.log("CPU wins!");
+            winnerText = "CPU wins!"
         }
         else {
-            console.log("Tie!");
+            winnerText = "Tie!";
         }
 
-        console.log(`USR: ${usrScore}\tCPU: ${cpuScore}`)
+        // Display winnerText to screen
+        const para = document.querySelector('.winner');
+        para.textContent = winnerText;
+
+        // Display scoreboard to screen
+        let numTies = numRoundsPlayed - (usrScore + cpuScore);
+        const TAB_SPACE = "    ";
+        let scoreText = `USR: ${usrScore}${TAB_SPACE}CPU: ${cpuScore}${TAB_SPACE}TIE: ${numTies}`
+        const scoreboard = document.querySelector('.scoreboard')
+        scoreboard.textContent = scoreText;
+        console.log(scoreText);
+
+        // Display choice of usrChoice and cpuChoice
+        let choiceDisplay = document.querySelector('.choice');
+        choiceText = `USR: ${usrChoice}${TAB_SPACE}CPU: ${cpuChoice}`;
+        choiceDisplay.textContent = choiceText;
+        console.log(choiceText);
+
     });
 }
 
