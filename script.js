@@ -1,19 +1,10 @@
 function getComputerChoice() {
+    // Pick a random number between 0 and 2. Use this random number to get the choice at the end
     let choice = Math.random() * 2;
     choice = Math.round(choice);
 
-    choices = ['rock', 'paper', 'scissors'];
+    const choices = ['rock', 'paper', 'scissors'];
     return choices.at(choice);
-}
-
-function getHumanChoice() {
-    let choice = prompt("Enter your choice: ");
-    validChoices = ['rock', 'paper', 'scissors'];
-
-    if (validChoices.includes(choice))
-        return choice.toLowerCase();
-    else
-        return undefined;
 }
 
 function determWinner(usrChoice, cpuChoice) {
@@ -42,32 +33,38 @@ function determWinner(usrChoice, cpuChoice) {
 }
 
 function main() {
-    let i = 0;
     let cpuScore = 0;
     let usrScore = 0;
 
-    while (i < 5) {
-        let cpuChoice = getComputerChoice();
-        let usrChoice = getHumanChoice();
+    let cpuChoice = getComputerChoice();
+    let usrChoice;
 
-        if (usrChoice === undefined)
-            console.error('Invald choice!')
+    // Get user choice
+    let buttons = document.querySelector(".buttons");
 
-        winner = determWinner(usrChoice, cpuChoice);
+    buttons.addEventListener("click", (event) => {
+        let target = event.target;
+        usrChoice = target.id;
+    });
 
-        // Determine winner
-        if (winner === 'usr') {
-            usrScore += 1;
-            alert("User wins!");
-        }
-        else if (winner === 'cpu') {
-            cpuScore += 1;
-            alert("CPU wins!")
-        }
+    console.log(usrChoice);
 
-        console.log(`USR: ${usrScore}\tCPU: ${cpuScore}`)
-        i++;
+    if (usrChoice === undefined)
+        console.error('Invalid choice!')
+
+    winner = determWinner(usrChoice, cpuChoice);
+
+    // Determine winner
+    if (winner === 'usr') {
+        usrScore += 1;
+        alert("User wins!");
     }
+    else if (winner === 'cpu') {
+        cpuScore += 1;
+        alert("CPU wins!")
+    }
+
+    console.log(`USR: ${usrScore}\tCPU: ${cpuScore}`)
 }
 
 main();
