@@ -62,14 +62,14 @@ function main() {
         // Display winner to user
         winnerDisplay = document.querySelector('.winner-display');
 
-        let winnerText = "";
+        let winnerText = "Winner: ";
         if (winner === 'usr') {
             usrScore += 1;
-            winnerText = "User wins!";
+            winnerText += "USR";
         }
         else if (winner === 'cpu') {
             cpuScore += 1;
-            winnerText = "CPU wins!"
+            winnerText += "CPU"
         }
         else {
             winnerText = "Tie!";
