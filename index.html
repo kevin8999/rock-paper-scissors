@@ -16,19 +16,24 @@
 </head>
 
 <body>
-    <h1 class="title roboto-medium">Rock Paper Scissors Game!</h1>
+    <h1 class="title">Rock Paper Scissors Game!</h1>
     <!-- Buttons -->
     <div class="game">
-        <div class="buttons">
-            <button class="button" id="rock">&#9994;</button>
-            <button class="button" id="paper">&#128400;</button>
-            <button class="button rotate-ccw-90-deg" id="scissors">&#9996;</button>
+        <div class="choice">
+            <p class="subtitle">Choice</p>
+            <div class="buttons">
+                <button class="button" id="rock">&#9994;</button>
+                <button class="button" id="paper">&#128400;</button>
+                <button class="button rotate-ccw-90-deg" id="scissors">&#9996;</button>
+            </div>
         </div>
+
 
         <div class="winner-display">
             <p class="winner"></p>
-            <p class="scoreboard preserve-whitespace"></p>
-            <p class="choice preserve-whitespace"></p>
+            <p class="scoreboard preserve-whitespace"><span class="player-side"></span><span class="cpu-side"></span>
+            </p>
+            <p class="show-choice preserve-whitespace"></p>
         </div>
     </div>
 

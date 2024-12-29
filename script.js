@@ -50,16 +50,19 @@ function main() {
         let usrChoice = target.id;
         let cpuChoice = getComputerChoice();
 
-        console.log(`USR: ${usrChoice}\tCPU: ${cpuChoice}`);
+        let validChoices = ['rock', 'paper', 'scissors'];
 
-        if (usrChoice === undefined) {
+        if (validChoices.includes(usrChoice)) {
+            console.log(`User selected ${usrChoice}`);
+        } else {
             console.error('Invalid choice!');
             return;
         }
 
-        winner = determWinner(usrChoice, cpuChoice);
+        console.log(`USR: ${usrChoice}\tCPU: ${cpuChoice}`);
 
         // Display winner to user
+        winner = determWinner(usrChoice, cpuChoice);
         winnerDisplay = document.querySelector('.winner-display');
 
         let winnerText = "Winner: ";
@@ -88,11 +91,10 @@ function main() {
         console.log(scoreText);
 
         // Display choice of usrChoice and cpuChoice
-        let choiceDisplay = document.querySelector('.choice');
+        let choiceDisplay = document.querySelector('.show-choice');
         choiceText = `USR: ${usrChoice}${TAB_SPACE}CPU: ${cpuChoice}`;
         choiceDisplay.textContent = choiceText;
         console.log(choiceText);
-
     });
 }
 
