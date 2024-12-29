@@ -37,8 +37,7 @@
     padding: 20px;
 }
 
-.raise:hover,
-.raise:focus {
+.raise:hover {
     background: darkgreen;
 }
 

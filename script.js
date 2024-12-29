@@ -101,8 +101,6 @@ function main() {
         let choiceText = `USR: ${usrChoice}${TAB_SPACE}CPU: ${cpuChoice}`;
         console.log(choiceText);
 
-        // Change to original background color once clicked
-
     });
 }
 
