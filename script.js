@@ -78,23 +78,31 @@ function main() {
             winnerText = "Tie!";
         }
 
-        // Display winnerText to screen
-        const para = document.querySelector('.winner');
-        para.textContent = winnerText;
-
-        // Display scoreboard to screen
-        let numTies = numRoundsPlayed - (usrScore + cpuScore);
-        const TAB_SPACE = "    ";
-        let scoreText = `USR: ${usrScore}${TAB_SPACE}CPU: ${cpuScore}${TAB_SPACE}TIE: ${numTies}`
-        const scoreboard = document.querySelector('.scoreboard')
-        scoreboard.textContent = scoreText;
-        console.log(scoreText);
+        // Display score
+        const usrScoreText = document.querySelector('.usr-score');
+        usrScoreText.textContent = usrScore;
+        const cpuScoreText = document.querySelector('.cpu-score');
+        cpuScoreText.textContent = cpuScore;
 
         // Display choice of usrChoice and cpuChoice
-        let choiceDisplay = document.querySelector('.show-choice');
-        choiceText = `USR: ${usrChoice}${TAB_SPACE}CPU: ${cpuChoice}`;
-        choiceDisplay.textContent = choiceText;
+        const choiceEmojis = { // Maps variables to appropriate emojis
+            "rock": "\u270A",
+            "paper": "\u270B",
+            "scissors": "\u270C"
+        };
+        let usrChoiceText = document.querySelector('.usr-choice');
+        usrChoiceText.textContent = choiceEmojis[usrChoice];
+        let cpuChoiceText = document.querySelector('.cpu-choice');
+        cpuChoiceText.textContent = choiceEmojis[cpuChoice];
+
+        // console.log
+        const TAB_SPACE = '    ';
+        let scoreText = `USR: ${usrScore}${TAB_SPACE}CPU: ${cpuScore}`;
+        let choiceText = `USR: ${usrChoice}${TAB_SPACE}CPU: ${cpuChoice}`;
         console.log(choiceText);
+
+        // Change to original background color once clicked
+
     });
 }
 

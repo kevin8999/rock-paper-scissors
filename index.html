@@ -20,20 +20,37 @@
     <!-- Buttons -->
     <div class="game">
         <div class="choice">
-            <p class="subtitle">Choice</p>
+            <h2 class="subtitle">Choice</h2>
             <div class="buttons">
-                <button class="button" id="rock">&#9994;</button>
-                <button class="button" id="paper">&#128400;</button>
-                <button class="button rotate-ccw-90-deg" id="scissors">&#9996;</button>
+                <button class="button raise" id="rock">&#9994;</button>
+                <button class="button raise" id="paper">&#128400;</button>
+                <button class="button raise rotate-ccw-90-deg" id="scissors">&#9996;</button>
             </div>
         </div>
 
+        <div class="divider"></div>
+
 
         <div class="winner-display">
-            <p class="winner"></p>
-            <p class="scoreboard preserve-whitespace"><span class="player-side"></span><span class="cpu-side"></span>
-            </p>
-            <p class="show-choice preserve-whitespace"></p>
+
+
+            <table class="scoreboard">
+                <tr>
+                    <th>Categories</th>
+                    <th>USR</th>
+                    <th>CPU</th>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td class="right-align usr-score">0</td>
+                    <td class="right-align cpu-score">0</td>
+                </tr>
+                <tr>
+                    <td>Choice</td>
+                    <td class="center-align usr-choice"></td>
+                    <td class="center-align cpu-choice"></td>
+                </tr>
+            </table>
         </div>
     </div>
 
