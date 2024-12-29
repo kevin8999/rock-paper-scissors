@@ -22,13 +22,14 @@
     background-color: #04AA6D;
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 30px;
     cursor: pointer;
     margin: 15px;
+    border-radius: 20px;
 }
 
 .roboto-regular {
@@ -41,4 +42,9 @@
     font-family: "Roboto", serif;
     font-weight: 500;
     font-style: normal;
+}
+
+.rotate-ccw-90-deg {
+    /* Rotate element 90 degrees counterclockwise */
+    transform: rotate(-90deg);
 }
