@@ -1,13 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Roboto Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    
+    <h1 class="title">Rock Paper Scissors Game!</h1>
+    <!-- Buttons -->
+    <div class="game">
+        <div class="choice">
+            <h2 class="subtitle">Choice</h2>
+            <div class="buttons">
+                <button class="button raise" id="rock">&#9994;</button>
+                <button class="button raise" id="paper">&#128400;</button>
+                <button class="button raise rotate-ccw-90-deg" id="scissors">&#9996;</button>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+
+        <div class="winner-display">
+            <h2>Scoreboard</h2>
+            <table class="scoreboard">
+                <tr>
+                    <th>Categories</th>
+                    <th>USR</th>
+                    <th>CPU</th>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td class="right-align usr-score">0</td>
+                    <td class="right-align cpu-score">0</td>
+                </tr>
+                <tr>
+                    <td>Choice</td>
+                    <td class="center-align usr-choice"></td>
+                    <td class="center-align cpu-choice"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
 
     <script src="script.js"></script>
 </body>
+
 </html>
